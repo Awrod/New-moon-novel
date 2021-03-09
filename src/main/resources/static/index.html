@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新月小说网</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/layui/css/layui.css"  media="all">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="layer.js"></script>
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function(){
+            var element = layui.element;
+
+        });
+    </script>
+    <style>
+        .parent {position: relative;}
+        .child{
+            position: absolute;
+            top: 30%;
+            left: 3%;
+            height: 30%;
+            width: 100%;
+            margin: 2% 20% 0 10%;
+        }
+    </style>
+    <script>
+        //Demo
+        layui.use('form', function(){
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function(data){
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body class="parent">
+<div class="child" style="width: 100%;height: 10%">
+    <img  src="/imges/newmoonlogo.png" style="float: left;">
+    <form class="layui-form" action="" method="post">
+        <input type="text" name="bookname" style="width: 490px;margin-left: 6%;height: 55px;float: left"   lay-verify="required" placeholder="请输入寻找的书籍"  class="layui-input">
+        <button style="margin-left: 1%;width: 55px;height: 55px;" class="layui-btn layui-bg-red" lay-submit lay-filter="formDemo"><i class="layui-icon layui-icon-search"></i></button>
+    </form>
+</div>
+</body>
+</html>

@@ -3,7 +3,21 @@ spring:
     port: 6379
     host: 127.0.0.1
   datasource:
+    url: "jdbc:mysql://localhost:3306/new_moon_novel?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8"
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://127.0.0.1:port/dbname"
-    name: root
-    password: "qwer321123"
+    username: root
+    password: qwer123321
+  profiles:
+    active: dev #设置开发环境
+#  mvc:
+#    static-path-pattern: /static/** #应该以什么样的路径来访问静态资源,这表示只有静态资源的访问路径为/static/ 时才会处理(如http://localhost:8080/static/css/base.css)
+#  web:
+#    resources:
+#      static-locations: [classpath:/static/] #用于告诉Spring Boot应该在何处查找静态资源文件,查找文件时会依赖于配置的先后顺序依次进行
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1   #逻辑删除
+      logic-not-delete-value: 0   #未逻辑删除
